@@ -1,8 +1,7 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
+import Page from './startPage.js';
 
 class SecurePage extends Page {
-
     get flashAlert () {
         return $('span[class="title"]');
     }

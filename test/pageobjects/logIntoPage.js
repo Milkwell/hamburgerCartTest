@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
+import Page from './startPage.js';
 
 
 class LoginPage extends Page {
@@ -21,9 +21,9 @@ class LoginPage extends Page {
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
     }
-    
+
     open () {
-        return super.open('login');
+        return super.open();
     }
 }
 

@@ -1,6 +1,6 @@
 import { expect } from '@wdio/globals'
-import LoginPage from '../pageobjects/login.page.js'
-import SecurePage from '../pageobjects/secure.page.js'
+import LoginPage from '../pageobjects/logIntoPage.js'
+import SecurePage from '../pageobjects/mainMenu.js'
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
@@ -12,3 +12,5 @@ describe('My Login application', () => {
             expect.stringContaining('Products'))
     })
 })
+
+// I next will need to select one item to add to my cart.

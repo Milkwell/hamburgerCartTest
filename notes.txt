@@ -1,0 +1,8 @@
+What I need to do for this automated test.
+
+I need to log in with valid credentials.
+I need to add something to my cart on the next page.
+I need to click on my cart to see what I have in my cart.
+I need to click on the hamburger menu.
+I need to click on 'reset state', 'all items', and then 'logout'.
+I then need to login one more time and click on the 'about' in the hamburger menu.
