@@ -5,6 +5,10 @@ import Cart from '../pageobjects/addToCart.js'
 import CartPage from '../pageobjects/cartChecker.js'
 import HamburgerMenu from '../pageobjects/hamburgerMenu.js'
 import ShopPage from '../pageobjects/hamburgerChecker.js'
+import MenuLogout from '../pageobjects/menuLogout.js'
+import LogoutPage from '../pageobjects/checkLogout.js'
+import MenuAbout from '../pageobjects/menuAbout.js'
+import AboutPage from '../pageobjects/checkAbout.js'
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
@@ -38,5 +42,27 @@ describe('I have reset the website', () => {
       await expect(ShopPage.flashAlert).toBeExisting()
       await expect(ShopPage.flashAlert).toHaveText(
           expect.stringContaining('Products'))
+    })
+})
+
+// next is logout option
+
+describe('I have selected the logout option', () => {
+    it ('and have been logged out', async () => {
+      await MenuLogout.select()
+
+      await expect(LogoutPage.flashAlert).toBeExisting()
+      await expect(LogoutPage.flashAlert).toHaveText(
+          expect.stringContaining('Swag Labs'))
+    })
+})
+
+//next is about option
+
+describe('I have logged in', () => {
+    it ('and have gone to the about page', async () => {
+      await MenuAbout.select('standard_user', 'secret_sauce')
+
+      await expect(AboutPage.flashAlert).toBeExisting()
     })
 })
