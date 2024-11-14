@@ -1,6 +1,8 @@
 import { expect } from '@wdio/globals'
 import LoginPage from '../pageobjects/logIntoPage.js'
 import SecurePage from '../pageobjects/mainMenu.js'
+import Cart from '../pageobjects/addToCart.js'
+import CartPage from '../pageobjects/cartChecker.js'
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
@@ -14,3 +16,13 @@ describe('My Login application', () => {
 })
 
 // I next will need to select one item to add to my cart.
+
+describe('The item I select', () => {
+    it ('should be added to my cart', async () => {
+      await Cart.select()
+
+      await expect(CartPage.flashAlert).toBeExisting()
+      await expect(CartPage.flashAlert).toHaveText(
+        expect.stringContaining('Your Cart'))
+    })
+})
