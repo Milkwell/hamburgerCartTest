@@ -11,6 +11,9 @@ class MenuLogout {
         await this.openBurger.click();
         await this.selectLogout.click();
     }
+    get flashAlert () {
+        return $('div[class="login_logo"]');
+    }
 }
 
 export default new MenuLogout();

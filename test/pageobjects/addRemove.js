@@ -1,19 +1,19 @@
 import { $ } from '@wdio/globals';
 
-class Cart {
-    get addItem () {
+class AddRemove {
+    get backToShop () {
         return $('button[id="add-to-cart-sauce-labs-backpack"]');
     }
-    get selectCart () {
+    get addBike () {
         return $('a[class="shopping_cart_link"]');
+    }
+    get toCart () {
+        return $('');
     }
     async select () {
         await this.addItem.click();
         await this.selectCart.click();
     }
-    get flashAlert () {
-        return $('span[class="title"]');
-    }
 }
 
-export default new Cart();
+export default AddRemove();

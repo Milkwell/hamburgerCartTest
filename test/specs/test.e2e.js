@@ -2,13 +2,9 @@ import { expect } from '@wdio/globals'
 import LoginPage from '../pageobjects/logIntoPage.js'
 import SecurePage from '../pageobjects/mainMenu.js'
 import Cart from '../pageobjects/addToCart.js'
-import CartPage from '../pageobjects/cartChecker.js'
 import HamburgerMenu from '../pageobjects/hamburgerMenu.js'
-import ShopPage from '../pageobjects/hamburgerChecker.js'
 import MenuLogout from '../pageobjects/menuLogout.js'
-import LogoutPage from '../pageobjects/checkLogout.js'
 import MenuAbout from '../pageobjects/menuAbout.js'
-import AboutPage from '../pageobjects/checkAbout.js'
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
@@ -27,11 +23,23 @@ describe('The item I select', () => {
     it ('should be added to my cart', async () => {
       await Cart.select()
 
+      await expect(Cart.flashAlert).toBeExisting()
+      await expect(Cart.flashAlert).toHaveText(
+        expect.stringContaining('Your Cart'))
+    })
+})
+
+//I will select different options in the cart
+
+/*describe('The item I select', () => {
+    it ('should be added to my cart', async () => {
+      await Cart.select()
+
       await expect(CartPage.flashAlert).toBeExisting()
       await expect(CartPage.flashAlert).toHaveText(
         expect.stringContaining('Your Cart'))
     })
-})
+}) */
 
 // I next will need to select the different options in the hamburger menu.
 
@@ -39,8 +47,8 @@ describe('I have reset the website', () => {
     it ('and went back to the store page', async () => {
       await HamburgerMenu.pick()
 
-      await expect(ShopPage.flashAlert).toBeExisting()
-      await expect(ShopPage.flashAlert).toHaveText(
+      await expect(HamburgerMenu.flashAlert).toBeExisting()
+      await expect(HamburgerMenu.flashAlert).toHaveText(
           expect.stringContaining('Products'))
     })
 })
@@ -51,8 +59,8 @@ describe('I have selected the logout option', () => {
     it ('and have been logged out', async () => {
       await MenuLogout.select()
 
-      await expect(LogoutPage.flashAlert).toBeExisting()
-      await expect(LogoutPage.flashAlert).toHaveText(
+      await expect(MenuLogout.flashAlert).toBeExisting()
+      await expect(MenuLogout.flashAlert).toHaveText(
           expect.stringContaining('Swag Labs'))
     })
 })
@@ -63,6 +71,6 @@ describe('I have logged in', () => {
     it ('and have gone to the about page', async () => {
       await MenuAbout.select('standard_user', 'secret_sauce')
 
-      await expect(AboutPage.flashAlert).toBeExisting()
+      await expect(MenuAbout.flashAlert).toBeExisting()
     })
 })

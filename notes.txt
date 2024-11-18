@@ -6,3 +6,56 @@ I need to click on my cart to see what I have in my cart.
 I need to click on the hamburger menu.
 I need to click on 'reset state', 'all items', and then 'logout'.
 I then need to login one more time and click on the 'about' in the hamburger menu.
+
+go back to checkout 
+select another item
+go back to checkout 
+check that both items are in your cart
+remove an item
+move to checkout and fill in information
+complete transaction
+finish
+
+about page checker 
+import { $ } from '@wdio/globals'
+
+class AboutPage {
+    get flashAlert () {
+        return $('div[class="MuiBox-root css-lwb5go"]');
+    }
+}
+
+export default new AboutPage();
+
+logout checker
+import { $ } from '@wdio/globals'
+
+class LogoutPage {
+    get flashAlert () {
+        return $('div[class="login_logo"]');
+    }
+}
+
+export default new LogoutPage();
+
+Hamburger checker 
+import { $ } from '@wdio/globals'
+
+class ShopPage {
+    get flashAlert () {
+        return $('span[class="title"]');
+    }
+}
+
+export default new ShopPage();
+
+cart checker
+import { $ } from '@wdio/globals';
+
+class CartPage {
+    get flashAlert () {
+        return $('span[class="title"]');
+    }
+}
+
+export default new CartPage();

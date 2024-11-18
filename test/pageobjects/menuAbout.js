@@ -23,6 +23,9 @@ class MenuAbout {
     await this.openBurgerAgain.click();
     await this.selectAbout.click();
     }
+    get flashAlert () {
+        return $('div[class="MuiBox-root css-lwb5go"]');
+    }
 }
 
 export default new MenuAbout();

@@ -17,6 +17,9 @@ class HamburgerMenu {
         await this.selectReset.click();
         await this.selectAllItems.click();
     }
+    get flashAlert () {
+        return $('span[class="title"]');
+    }
 }
 
 export default new HamburgerMenu();
