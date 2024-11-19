@@ -7,11 +7,11 @@ I need to click on the hamburger menu.
 I need to click on 'reset state', 'all items', and then 'logout'.
 I then need to login one more time and click on the 'about' in the hamburger menu.
 
-go back to checkout 
-select another item
-go back to checkout 
-check that both items are in your cart
-remove an item
+select all items
+go to cart 
+check that all items are in my cart
+remove one item
+chack that the item was removed
 move to checkout and fill in information
 complete transaction
 finish

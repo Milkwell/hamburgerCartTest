@@ -2,6 +2,9 @@ import { expect } from '@wdio/globals'
 import LoginPage from '../pageobjects/logIntoPage.js'
 import SecurePage from '../pageobjects/mainMenu.js'
 import Cart from '../pageobjects/addToCart.js'
+import ItemRemove from '../pageobjects/removeFromCart.js'
+import AddBackpack from '../pageobjects/addBackpack.js'
+import CheckOut from '../pageobjects/checkout.js'
 import HamburgerMenu from '../pageobjects/hamburgerMenu.js'
 import MenuLogout from '../pageobjects/menuLogout.js'
 import MenuAbout from '../pageobjects/menuAbout.js'
@@ -17,29 +20,52 @@ describe('My Login application', () => {
     })
 })
 
-// I next will need to select one item to add to my cart.
+// I next will need to select all items to add to my cart.
 
-describe('The item I select', () => {
+describe('All the items I select', () => {
     it ('should be added to my cart', async () => {
       await Cart.select()
 
-      await expect(Cart.flashAlert).toBeExisting()
-      await expect(Cart.flashAlert).toHaveText(
-        expect.stringContaining('Your Cart'))
+      await expect(Cart.flashAlert1).toBeExisting()
+      await expect(Cart.flashAlert2).toBeExisting()
+      await expect(Cart.flashAlert3).toBeExisting()
+      await expect(Cart.flashAlert4).toBeExisting()
+      await expect(Cart.flashAlert5).toBeExisting()
+      await expect(Cart.flashAlert6).toBeExisting()
     })
 })
 
-//I will select different options in the cart
+//I will select two different options in the cart to remove
 
-/*describe('The item I select', () => {
-    it ('should be added to my cart', async () => {
-      await Cart.select()
+describe('The items I select', () => {
+    it ('should be removed from my cart', async () => {
+      await ItemRemove.select()
 
-      await expect(CartPage.flashAlert).toBeExisting()
-      await expect(CartPage.flashAlert).toHaveText(
-        expect.stringContaining('Your Cart'))
+      await expect(ItemRemove.flashAlert).toBeExisting()
     })
-}) */
+}) 
+
+//I will add one item back to the cart
+
+describe('The item I select', () => {
+    it ('should be added to my cart', async () => {
+      await AddBackpack.select()
+
+      await expect(AddBackpack.flashAlert).toBeExisting()
+    })
+}) 
+
+//I will check out the items in my cart
+
+describe('The items I have selected', () => {
+    it ('should be brought to checkout', async () => {
+      await CheckOut.select('John', 'Smith', 'funCode')
+
+      await expect(CheckOut.flashAlert).toBeExisting()
+      await expect(CheckOut.flashAlert).toHaveText(
+        expect.stringContaining('Thank you for your order!'))
+    })
+}) 
 
 // I next will need to select the different options in the hamburger menu.
 
